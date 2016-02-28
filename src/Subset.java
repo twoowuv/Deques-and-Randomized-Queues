@@ -18,10 +18,6 @@ public class Subset {
         // The number of items to print
         int k = Integer.parseInt(args[0]);
 
-        if (k < 1) {
-            throw new IndexOutOfBoundsException("There's no point reading 0 strings out.");
-        }
-
         while (!StdIn.isEmpty()) {
             String str = StdIn.readString();
 
