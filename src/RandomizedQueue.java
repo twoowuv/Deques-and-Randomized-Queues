@@ -114,6 +114,9 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
         @Override
         public Item next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException("There are no items left to iterate over.");
+            }
             return queue[iteratorIdx++];
         }
 
