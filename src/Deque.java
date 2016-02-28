@@ -1,8 +1,5 @@
-import java.lang.NullPointerException;
-import java.lang.UnsupportedOperationException;
-import java.util.NoSuchElementException;
-
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * A double ended queue or deque data type. Items can be added and removed from either
