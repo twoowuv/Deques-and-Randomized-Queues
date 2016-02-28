@@ -12,7 +12,7 @@ public class Deque<Item> implements Iterable<Item> {
 
     private Node first;
     private Node last;
-    private int size;
+    private int N;
 
     /**
      * Constructs an empty deque
@@ -20,7 +20,7 @@ public class Deque<Item> implements Iterable<Item> {
     public Deque() {
         first = null;
         last = null;
-        size = 0;
+        N = 0;
     }
 
     /**
@@ -47,7 +47,7 @@ public class Deque<Item> implements Iterable<Item> {
      * Return the number of items on the deque
      */
     public int size() {
-        return size;
+        return N;
     }
 
     /**
@@ -66,14 +66,14 @@ public class Deque<Item> implements Iterable<Item> {
         first.next = oldFirst;
         first.prev = null;
 
-        size++;
+        N++;
 
-        if (size == 1) {
+        if (N == 1) {
             // If there is only one item in the deque then the last node is the first node
             last = first;
         } else {
             // If the size is greater than one set the oldFirst.prev to the new first
-            // Note: We don't have to worry about size of 0 because it will throw before that
+            // Note: We don't have to worry about N of 0 because it will throw before that
             oldFirst.prev = first;
         }
 
@@ -95,9 +95,9 @@ public class Deque<Item> implements Iterable<Item> {
         last.prev = oldLast;
         last.next = null;
 
-        size++;
+        N++;
 
-        if (size == 1) {
+        if (N == 1) {
             // If there is only one item in the deque then the last node is the first node
             first = last;
         } else {
@@ -117,10 +117,10 @@ public class Deque<Item> implements Iterable<Item> {
         Item oldFirst = first.item;
         first = first.next;
 
-        size--;
+        N--;
 
         // If first isn't null then we've still got items in the list
-        if (size == 0) {
+        if (N == 0) {
             last = null;
         } else {
             first.prev = null;
@@ -140,10 +140,10 @@ public class Deque<Item> implements Iterable<Item> {
         Item oldLast = last.item;
         last = last.prev;
 
-        size--;
+        N--;
 
         // If last isn't null then we've still got items in the list
-        if (size == 0) {
+        if (N == 0) {
             first = null;
         } else {
             last.next = null;
